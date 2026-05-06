@@ -43,6 +43,6 @@ A full-stack e-commerce platform built with Spring Boot, React, and PostgreSQL.
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/yourusername/ecommerce-platform.git
+git clone https://github.com/yabsrashimels/Ecommerce-SAD-Assignment.git
 cd ecommerce-platform
 ```
