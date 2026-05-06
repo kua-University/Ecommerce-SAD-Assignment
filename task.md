@@ -1,0 +1,11 @@
+- [x] Update `User.java` to add `phone` and `address`.
+- [x] Update `Product.java` to add `category` and `seller` (User relationship).
+- [x] Update `Order.java` and `CheckoutRequest.java` to include `buyerName` and `buyerPhone`.
+- [x] Create `DataSeeder.java` to populate sample users and products.
+- [x] Update `ProductService.java` and `ProductController.java` for seller product endpoints and creation logic.
+- [x] Update `OrderService.java` and `OrderController.java` to save buyer info.
+- [x] Update `App.jsx` and `Navbar.jsx` with seller dashboard routes.
+- [x] Create `SellerDashboard.jsx` for sellers to add products.
+- [x] Update `HomePage.jsx` and `ProductsPage.jsx` to display product categories and seller info.
+- [x] Update `CheckoutPage.jsx` to collect buyer name and phone.
+- [x] Restart backend to run seeder and verify everything.
