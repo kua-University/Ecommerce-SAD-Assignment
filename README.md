@@ -46,3 +46,7 @@ A full-stack e-commerce platform built with Spring Boot, React, and PostgreSQL.
 git clone https://github.com/yabsrashimels/Ecommerce-SAD-Assignment.git
 cd ecommerce-platform
 ```
+ Admin Credentials
+URL: http://localhost:5173/admin/login
+Email: admin@example.com
+Password: admin

@@ -32,7 +32,7 @@ const LoginPage = () => {
     <div className="flex justify-center items-center h-[calc(100vh-64px)] bg-gray-50">
       <div className="w-full max-w-md bg-white p-8 rounded-lg shadow-md">
         <h2 className="text-2xl font-bold text-center mb-6">Login to Your Account</h2>
-        
+
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
             <label className="block text-gray-700 text-sm font-bold mb-2">
@@ -46,7 +46,7 @@ const LoginPage = () => {
               required
             />
           </div>
-          
+
           <div>
             <label className="block text-gray-700 text-sm font-bold mb-2">
               Password
@@ -59,7 +59,7 @@ const LoginPage = () => {
               required
             />
           </div>
-          
+
           <button
             type="submit"
             disabled={loading}
@@ -68,7 +68,7 @@ const LoginPage = () => {
             {loading ? 'Logging in...' : 'Login'}
           </button>
         </form>
-        
+
         <div className="mt-4 text-center text-sm text-gray-600">
           Don't have an account?{' '}
           <Link to="/register" className="text-blue-600 hover:text-blue-800 font-medium">

@@ -27,10 +27,11 @@ const Navbar = () => {
               <Link to="/checkout" className="py-2 px-3 text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-md font-medium transition-all duration-200">Checkout</Link>
               <Link to="/about" className="py-2 px-3 text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-md font-medium transition-all duration-200">About</Link>
               <Link to="/seller/dashboard" className="py-2 px-3 text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-md font-medium transition-all duration-200">Dashboard</Link>
+              <Link to="/admin/dashboard" className="py-2 px-3 text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-md font-medium transition-all duration-200">Admin Dashboard</Link>
             </div>
           </div>
 
-            <div className="flex items-center space-x-3">
+          <div className="flex items-center space-x-3">
             {/* Cart Icon with Badge */}
             <Link to="/cart" className="relative p-2 text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-full transition-all duration-200 group">
               <span className="text-2xl group-hover:scale-110 inline-block transition-transform duration-200">🛒</span>

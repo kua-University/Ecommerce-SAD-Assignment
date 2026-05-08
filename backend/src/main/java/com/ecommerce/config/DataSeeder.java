@@ -26,13 +26,29 @@ public class DataSeeder implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        // Only seed if there are no products in the database
+
+        // ✅ ALWAYS ensure admin user exists on every startup
+        boolean adminExists = userRepository.findAll().stream()
+                .anyMatch(u -> "ROLE_ADMIN".equals(u.getRole()));
+        if (!adminExists) {
+            User admin = new User();
+            admin.setUsername("admin");
+            admin.setEmail("admin@example.com");
+            admin.setPassword(passwordEncoder.encode("admin"));
+            admin.setRole("ROLE_ADMIN");
+            userRepository.save(admin);
+            System.out.println("✅ Admin user created: admin@example.com / admin");
+        } else {
+            System.out.println("✅ Admin user already exists.");
+        }
+
+        // Only seed products if there are none in the database
         if (productRepository.count() == 0) {
             System.out.println("Seeding database with sample data...");
 
             // Get or create a sample seller
             User seller;
-            if (userRepository.count() == 0) {
+            if (userRepository.findAll().stream().noneMatch(u -> "ROLE_USER".equals(u.getRole()))) {
                 seller = new User();
                 seller.setUsername("sample_seller");
                 seller.setEmail("seller@example.com");
@@ -42,7 +58,9 @@ public class DataSeeder implements CommandLineRunner {
                 seller.setAddress("123 Seller St, Tech City");
                 seller = userRepository.save(seller);
             } else {
-                seller = userRepository.findAll().get(0);
+                seller = userRepository.findAll().stream()
+                        .filter(u -> "ROLE_USER".equals(u.getRole()))
+                        .findFirst().orElseGet(() -> userRepository.findAll().get(0));
             }
 
             // Create sample products
@@ -53,8 +71,7 @@ public class DataSeeder implements CommandLineRunner {
                     50,
                     "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=500&q=60",
                     "Electronics",
-                    seller
-            );
+                    seller);
 
             Product p2 = new Product(
                     "Mechanical Gaming Keyboard",
@@ -63,8 +80,7 @@ public class DataSeeder implements CommandLineRunner {
                     30,
                     "https://images.unsplash.com/photo-1595225476474-87563907a212?auto=format&fit=crop&w=500&q=60",
                     "Electronics",
-                    seller
-            );
+                    seller);
 
             Product p3 = new Product(
                     "Ergonomic Office Chair",
@@ -73,8 +89,7 @@ public class DataSeeder implements CommandLineRunner {
                     15,
                     "https://images.unsplash.com/photo-1505843490538-5133c6c7d0e1?auto=format&fit=crop&w=500&q=60",
                     "Furniture",
-                    seller
-            );
+                    seller);
 
             Product p4 = new Product(
                     "Stainless Steel Water Bottle",
@@ -83,11 +98,9 @@ public class DataSeeder implements CommandLineRunner {
                     100,
                     "https://images.unsplash.com/photo-1602143407151-7111542de6e8?auto=format&fit=crop&w=500&q=60",
                     "Accessories",
-                    seller
-            );
+                    seller);
 
             productRepository.saveAll(Arrays.asList(p1, p2, p3, p4));
-
             System.out.println("Sample data seeded successfully!");
         }
     }

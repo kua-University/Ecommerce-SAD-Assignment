@@ -22,7 +22,9 @@ C:\Users\hp\softeware\ecommerce-platform\backend\src\main\java\com\ecommerce\ser
 C:\Users\hp\softeware\ecommerce-platform\backend\src\main\java\com\ecommerce\dto\LoginRequest.java
 C:\Users\hp\softeware\ecommerce-platform\backend\src\main\java\com\ecommerce\controller\OrderController.java
 C:\Users\hp\softeware\ecommerce-platform\backend\src\main\java\com\ecommerce\dto\CheckoutRequest.java
+C:\Users\hp\softeware\ecommerce-platform\backend\src\main\java\com\ecommerce\controller\AdminController.java
 C:\Users\hp\softeware\ecommerce-platform\backend\src\main\java\com\ecommerce\controller\NewsletterController.java
 C:\Users\hp\softeware\ecommerce-platform\backend\src\main\java\com\ecommerce\controller\ProductController.java
 C:\Users\hp\softeware\ecommerce-platform\backend\src\main\java\com\ecommerce\model\Product.java
+C:\Users\hp\softeware\ecommerce-platform\backend\src\main\java\com\ecommerce\service\AdminService.java
 C:\Users\hp\softeware\ecommerce-platform\backend\src\main\java\com\ecommerce\repository\UserRepository.java
