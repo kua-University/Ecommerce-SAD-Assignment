@@ -44,6 +44,34 @@
 
 ---
 
+## 🏗️ Architecture Overview
+
+This project follows a **Microservices-oriented architecture** with a clear separation between the React frontend, Spring Boot backend services, and PostgreSQL database. A centralized **API Gateway Pattern** is used to route all client requests, handle cross-cutting concerns like CORS and authentication, and forward traffic to the appropriate service.
+
+### Design Patterns Used
+
+| Pattern | Where Applied |
+|---|---|
+| **Singleton** | Spring Boot manages Service and Repository beans as singletons for efficient resource usage |
+| **DTO (Data Transfer Object)** | Decouples JPA entities from API responses, reducing payload size and improving security |
+| **Proxy** | The API Gateway acts as a reverse proxy, handling token validation and request routing |
+
+### Request Flow
+
+```
+React (Axios + JWT) → API Gateway → Spring Boot Service → Spring Data JPA → PostgreSQL
+                                           ↓
+                                     DTO Response → React State Update
+```
+
+1. The React frontend sends an Axios request with a JWT token in the header
+2. The Gateway validates the token and routes the request to the correct service
+3. The service executes business logic using Spring Data JPA
+4. PostgreSQL processes the transaction and returns the result
+5. The response is mapped to a DTO and sent back to React to update the UI
+
+---
+
 ## 🚀 Technology Stack
 
 ### Backend
